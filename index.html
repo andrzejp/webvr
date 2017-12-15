@@ -2,14 +2,26 @@
   <head>
     <script src="https://aframe.io/releases/0.7.0/aframe.min.js"></script>
     <script src="https://unpkg.com/aframe-particle-system-component@1.0.x/dist/aframe-particle-system-component.min.js"></script>
+      <script src="https://unpkg.com/aframe-text-geometry-component@^0.5.0/dist/aframe-text-geometry-component.min.js"></script>
   </head>
   <body>
     <a-scene>
-        <a-assets>
-          <audio src="Jingle_Bells.ogg" autoplay preload></audio>
-        </a-assets>
-        <a-entity position="0 2.25 -15" particle-system="preset: snow"></a-entity>
+      <a-assets>
+        <img id="snowTexture" src="http://0.0.0.0:8000/tomek/snow10_d.jpg">
+        <audio src="Jingle_Bells.ogg"></audio>
+        <a-asset-item id="mountainsOfChristmasFont" src="http://0.0.0.0:8000/mountains-of-christmas.json"></a-asset-item>
+	<a-asset-item id="snowman" src="snow-man.dae"></a-asset-item>
+	<a-asset-item id="tree" src="tree.dae"></a-asset-item>
+	<img id="face" src="face.jpg">
+      </a-assets>
+      <a-entity position="0 2.25 -15" particle-system="preset: snow"></a-entity>
+      <a-sky color="#ddd"></a-sky>
+      <a-plane src="#snowTexture" height="100" width="100" rotation="-90 0 0" repeat="50 50"></a-plane>
+      <a-entity position="-3.5 3 -4" material="color: red" text-geometry="value: Merry Christmas, Anna!; font: #mountainsOfChristmasFont"></a-entity>
+      <a-entity position="0 2 -4" scale="0.5 0.5 0.5" material="color: red" text-geometry="value: (look behind you!); font: #mountainsOfChristmasFont"></a-entity>
+      <a-collada-model src="#snowman" position="0 0 -4"></a-collada-model>
+      <a-collada-model src="#tree" position="-2 0 -4"></a-collada-model>
+      <a-image src="#face" rotation="0 0 90" position="0 2 2"></a-image>
     </a-scene>
   </body>
 </html>
-    
